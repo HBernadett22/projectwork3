@@ -172,5 +172,13 @@ ha kiválasztja a saját profilját
 akkor a egy üzenet jön, hogy ki kell tölteni az adott mezőt
 és a frissítés nem történik meg.
 
+    ///Tesztadtaaok létrehozása:
+Bejelentkezés tesztelésénél:
+Megadhatóak központilag a különböző tesztelendő kritériumoknak megfelelően.
+Új megtakarítási számla létrehozásánál:
+Megadható központilag a különböző tesztelendő kritériumoknak megfelelően.
+Profil tesztelése:
+Megadható központilag a különböző tesztelendő kritériumoknak megfelelően.
+
 
 
