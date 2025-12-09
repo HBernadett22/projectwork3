@@ -6,3 +6,4 @@ public enum BrowserType {
     EDGE_SELMGR
 
 }
+

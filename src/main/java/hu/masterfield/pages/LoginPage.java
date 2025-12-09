@@ -34,3 +34,4 @@ public class LoginPage extends Hooks {
         return driver.findElement(errorMessage).getText();
     }
 }
+
