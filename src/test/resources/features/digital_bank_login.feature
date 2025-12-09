@@ -1,4 +1,4 @@
-Feature DigitalBank login page opening
+Feature: DigitalBank login page opening
 
   As a registreted DigitalBank customer, I would like to login successfully, so that I can check bank infos online.
 
@@ -9,17 +9,17 @@ Feature DigitalBank login page opening
   Rule: Login successfully
     Scenario: Fill the login fields correct
       When I sign in using "KBoglarka" and "KeBo123456"
-      Then the Üdvözöljük, Boglárka
+      Then a message is show with "Üdvözöljük, Boglárka"
 
   Rule: Login unsuccessfully
-    Scenario: Fill the login fields incorrect
+    Scenario Outline: Fill the login fields incorrect
       When I sign in using "<felhasználónév>" and "<jelszó>"
-      Then an error message is visibel "Hiba Hibás belépési adatok vagy a hozzáférés nem engedélyezett a felhasználói fiók státusza, vagy létező felhasználó munkamenet miatt."
+      Then an error message is visible "Hiba Hibás belépési adatok vagy a hozzáférés nem engedélyezett a felhasználói fiók státusza, vagy létező felhasználó munkamenet miatt."
 
-      Example:
-        | felhasználónév  | jelszó      |
-        | KBogi           | KeBo123456  |
-        | KBoglarka       | KeBo654321  |
-        |                 | KeBo123456  |
-        | KBogi           |             |
+      Examples:
+        | felhasználónév | jelszó     |
+        | KBogi          | KeBo123456 |
+        | KBoglarka      | KeBo654321 |
+        |                | KeBo123456 |
+        | KBogi          |            |
 
