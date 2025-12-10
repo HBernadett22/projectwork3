@@ -1,18 +1,18 @@
 Feature DigitalBank new saving
 
-  Backround:
-  Given the user is loged in to the DigitalBank page
-  And see the Áttekintés
+  Background:
+    Given I am singed in on the DigitalBank page
+    And I see the "Üdvözöljük, Boglárka"
 
   Rule: Open new saving successfully
     Scenario: Fill the fields correct
-      Given the user already loged in
-      And see the Áttekintés
-      When the user ckick on Megtakarítás
-      And Új megtakarítás
-      And fill the boxes
-      Then new Megtakarítás megtekintése will open and show all Megtakarítás
+      When I ckick on "Megtakarítás" and "Új megtakarítás"
+      And I fill the boxes
+      And I click on "Elküldés"
+      Then I can see Megtakarítási számlák
       And the new one is activ
+
+
 
   Rule: Open new saving unsuccessfully
     Scenario: Leave empty checkbox
