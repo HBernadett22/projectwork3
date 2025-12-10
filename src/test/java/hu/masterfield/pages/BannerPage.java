@@ -16,7 +16,7 @@ public class BannerPage extends BasePage {
         driver.get("https://hun.digitalbank.masterfield.hu/bank/login");
     }
 
-//    public void acceptCookies() {
-//        okBtn.click();
-//    }
+    public void acceptCookies() {
+        okBtn.click();
+    }
 }

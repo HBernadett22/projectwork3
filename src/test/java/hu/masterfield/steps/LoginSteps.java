@@ -1,5 +1,6 @@
 package hu.masterfield.steps;
 
+import hu.masterfield.pages.BannerPage;
 import hu.masterfield.pages.LoginPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -20,7 +21,7 @@ public class LoginSteps {
     private static LoginPage loginPage;
     private static WebDriver driver;
     private static WebDriverWait wait;
-    LoginSteps bannerPage = null;
+    private static BannerPage bannerPage;
 
     @Before
     public static void setup() throws IOException {
@@ -29,6 +30,7 @@ public class LoginSteps {
         // angol nyelvű böngésző indítása
         //options.addArguments("--lang=en-US");
         driver = new ChromeDriver(options);
+        bannerPage = new BannerPage(driver);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.manage().window().setSize(new Dimension(900, 900));
     }
@@ -40,7 +42,7 @@ public class LoginSteps {
 
     @Given("I open the DigitalBank page")
     public void iOpenTheDigitalBankPage() {
-        //driver.get("https://hun.digitalbank.masterfield.hu/bank/login");
+        driver.get("https://hun.digitalbank.masterfield.hu/bank/login");
         loginPage = new LoginPage(driver);
         loginPage.isLoaded();
     }
@@ -61,9 +63,9 @@ public class LoginSteps {
         loginPage.checkMessage(msg);
     }
 
-    @Then("an error message is visible {string}")
-    public void anErrorMessageIsVisible(String expectedError) {
-        loginPage.checkErrorMessage(expectedError);
+    @Then("a login error message is visible")
+    public void anErrorMessageIsVisible() {
+        loginPage.checkErrorMessage();
     }
 
 }

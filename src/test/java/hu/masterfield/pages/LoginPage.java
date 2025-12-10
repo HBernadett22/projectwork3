@@ -6,23 +6,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class LoginPage extends BasePage {
     //private WebDriver driver;
     public LoginPage(WebDriver driver) {
         super(driver);
-    }
-
-    public boolean isLoaded() {
-        try {
-            return wait.until(ExpectedConditions.visibilityOf(loginButton)).isDisplayed();
-        } catch (TimeoutException e) {
-            fail(e);
-            return false;
-        }
     }
 
     @FindBy(id = "username")
@@ -40,20 +30,37 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "/html/body/div[1]/div/div/div[2]/div")
     private WebElement errorMessage;
 
-
-    public void checkMessage(String msg) {
-        assertEquals(msg, welcomeMessage);
+    public boolean isLoaded() {
+        try {
+            return wait.until(ExpectedConditions.visibilityOf(loginButton)).isDisplayed();
+        } catch (TimeoutException e) {
+            fail(e);
+            return false;
+        }
     }
 
-    public void checkErrorMessage(String expectedError) {
-        // assert ...
-        assertEquals(expectedError, errorMessage);
-    }
+
+//    public void checkMessage(String msg) {
+//        assertEquals(msg, welcomeMessage);
+//    }
+//    public void checkErrorMessage(String expectedError) {
+//        // assert ...
+//        assertEquals(expectedError, errorMessage);
+//    }
 
     public void login(String username, String password) {
         usernameField.sendKeys(username);
         passwordField.sendKeys(password);
         loginButton.click();
+    }
+
+    public void checkMessage(String msg) {
+        assertEquals(msg, welcomeMessage.getText());
+    }
+
+    public void checkErrorMessage() {
+        //assertEquals(expectedError, errorMessage.getText());
+        assertTrue(wait.until(ExpectedConditions.visibilityOf(errorMessage)).isDisplayed());
     }
 }
 
