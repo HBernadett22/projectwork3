@@ -11,7 +11,19 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 
 public class LoginPage extends BasePage {
-    private WebDriver driver;
+    //private WebDriver driver;
+    public LoginPage(WebDriver driver) {
+        super(driver);
+    }
+
+    public boolean isLoaded() {
+        try {
+            return wait.until(ExpectedConditions.visibilityOf(loginButton)).isDisplayed();
+        } catch (TimeoutException e) {
+            fail(e);
+            return false;
+        }
+    }
 
     @FindBy(id = "username")
     private WebElement usernameField;
@@ -28,18 +40,6 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "/html/body/div[1]/div/div/div[2]/div")
     private WebElement errorMessage;
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
-    }
-
-    public boolean isLoaded() {
-        try {
-            return wait.until(ExpectedConditions.visibilityOf(loginButton)).isDisplayed();
-        } catch (TimeoutException e) {
-            fail(e);
-            return false;
-        }
-    }
 
     public void checkMessage(String msg) {
         assertEquals(msg, welcomeMessage);
