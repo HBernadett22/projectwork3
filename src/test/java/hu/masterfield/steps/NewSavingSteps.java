@@ -91,7 +91,7 @@ public class NewSavingSteps {
         private WebElement newSavingsSubmitButton;
         newSavingsSubmitButton.click();
 
-    @Then("a message is shown with {string}")
+    @Then("aMessageIsShownWith {string}")
     public void aMessageIsShownWith(String savingAccounts) {
         savingPage.checkMessage(savingmsg);
     }
