@@ -9,10 +9,13 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
@@ -65,16 +68,28 @@ public class NewSavingSteps {
     //xpath kezdeti befizetés: //*[@id="openingBalance"]
     //xpath elküldés: //*[@id="newSavingsSubmit"]
 
-    @When("iCkickOn<Megtakarítás>And<ÚjMegtakarítás>")
+    @When("iOpenTheMenü")
+    public void i_click_on_menu_and_submenu(String menu, String submenu) {
+        // Kattintás a fő menü elemre (Megtakarítás)
+        WebElement mainMenu = driver.findElement(By.xpath("//*[@id=\"savings-menu\"]"));
+        mainMenu.click();
 
+        // Kattintás a második menü elemre (Új megtakarítás)
+        WebElement subMenu = driver.findElement(By.xpath("///*[@id=\"new-savings-menu-item\"]"));
+        subMenu.click();
+    }
     @And("iCreateANewSavingAccountWith")
     public void i_create_new_saving_account_with(io.cucumber.datatable.DataTable dataTable) {
 
         Map<String, String> data = dataTable.asMaps().get(0);
         newSavingPage.selectMainSavingType(data.get("TakarékszámlaTípusa"));
-        newSavingPage.selectSubSavingType(data.get("TakarékszámlaTípusa"));
+        newSavingPage.selectSubSavingType(data.get("TakarékszámlaTulajdonjoga"));
         newSavingPage.enterSavingName(data.get("SzámlaNeve"));
         newSavingPage.enterInitialDeposit(data.get("KezdetiBefizetés"));
+
+        @FindBy(id = "newSavingsSubmit")
+        private WebElement newSavingsSubmitButton;
+        newSavingsSubmitButton.click();
 
     @Then("a message is shown with {string}")
     public void aMessageIsShownWith(String savingAccounts) {
