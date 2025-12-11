@@ -11,8 +11,8 @@ Feature DigitalBank new saving
         | TakarékszámlaTípusa | TakarékszámlaTípusa | SzámlaNeve | KezdetiBefizetés |
         | Megtakarítások      | Egyéni              | KeBo3      | 100              |
       And I click on "Elküldés"
-      Then I can see Megtakarítási számlák
-      And the success message is visible
+      Then a message is shown with "Megtakarítási számlák megtekintése"
+      And the success message is visible "Megerősítés"
 
 
   Rule: Open new saving unsuccessfully

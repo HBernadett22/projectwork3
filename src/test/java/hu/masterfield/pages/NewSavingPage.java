@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 
-public class NewSavingPage extends SavingBasePage {
+public class NewSavingPage extends BasePage {
     public NewSavingPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
@@ -84,6 +84,10 @@ public class NewSavingPage extends SavingBasePage {
                 break;
             }
         }
+    }
+
+    public void checkMessage(String savingmsg) {
+        assertEquals(savingmsg, savingMsg.getText());
     }
 
 
