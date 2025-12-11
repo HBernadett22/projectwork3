@@ -7,11 +7,12 @@ Feature DigitalBank new saving
   Rule: Open new saving successfully
     Scenario: Fill the fields correct
       When I ckick on "Megtakarítás" and "Új megtakarítás"
-      And I fill the boxes
+      And I create a new saving account with
+        | TakarékszámlaTípusa | TakarékszámlaTípusa | SzámlaNeve | KezdetiBefizetés |
+        | Megtakarítások      | Egyéni              | KeBo3      | 100              |
       And I click on "Elküldés"
       Then I can see Megtakarítási számlák
-      And the new one is activ
-
+      And the success message is visible
 
 
   Rule: Open new saving unsuccessfully
