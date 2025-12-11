@@ -6,10 +6,10 @@ Feature DigitalBank new saving
 
   Rule: Open new saving successfully
     Scenario: Fill the fields correct
-      When I ckick on "Megtakarítás" and "Új megtakarítás"
+      When I open the menü
       And I create a new saving account with
-        | TakarékszámlaTípusa | TakarékszámlaTípusa | SzámlaNeve | KezdetiBefizetés |
-        | Megtakarítások      | Egyéni              | KeBo3      | 100              |
+        | TakarékszámlaTípusa | TakarékszámlaTulajdonjoga | SzámlaNeve | KezdetiBefizetés |
+        | Megtakarítások      | Egyéni                    | KeBo3      | 100              |
       And I click on "Elküldés"
       Then a message is shown with "Megtakarítási számlák megtekintése"
       And the success message is visible "Megerősítés"
