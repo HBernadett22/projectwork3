@@ -7,4 +7,9 @@ public class WelcomePage {
 //            throw new PendingException();
 //        });
     }
+
+    public void isLoaded() {
+
+    }
 }
+

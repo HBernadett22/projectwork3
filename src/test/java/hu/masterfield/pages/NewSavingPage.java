@@ -89,6 +89,4 @@ public class NewSavingPage extends BasePage {
     public void checkMessage(String savingmsg) {
         assertEquals(savingmsg, savingMsg.getText());
     }
-
-
 }

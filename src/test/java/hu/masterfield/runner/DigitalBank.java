@@ -27,5 +27,4 @@ import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
                 "json:target/cucumber_report.json")
 
 public class DigitalBank {
-
 }

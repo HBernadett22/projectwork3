@@ -22,4 +22,3 @@ Feature: DigitalBank login page opening
         | KBoglarka      | KeBo654321 |
         |                | KeBo123456 |
         | KBogi          |            |
-

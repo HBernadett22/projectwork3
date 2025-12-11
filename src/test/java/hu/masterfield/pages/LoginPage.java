@@ -63,4 +63,3 @@ public class LoginPage extends BasePage {
         assertTrue(wait.until(ExpectedConditions.visibilityOf(errorMessage)).isDisplayed());
     }
 }
-

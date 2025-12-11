@@ -49,7 +49,6 @@ public class LoginSteps {
 
     @And("accept cookies")
     public void acceptCookies() {
-        // TODO
         bannerPage.acceptCookies();
     }
 
@@ -69,3 +68,4 @@ public class LoginSteps {
     }
 
 }
+

@@ -20,3 +20,4 @@ public class BannerPage extends BasePage {
         okBtn.click();
     }
 }
+
