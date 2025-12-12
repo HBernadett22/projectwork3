@@ -80,14 +80,14 @@ public class LoginSteps {
     }
 
     // New saving:
-//    @Given("I am singed in on the DigitalBank page")
-//    public void iAmSingedInOnTheDigitalBankPage() {
-//        LoginSteps loginSteps = new LoginSteps();
-//        loginSteps.iOpenTheDigitalBankPage();
-//        loginSteps.acceptCookies();
-//        loginSteps.iSignInUsingAnd("KBoglarka", "KeBo123456");
-//        //loginSteps.aMessageIsShownWith("Üdvözöljük, Boglárka");
-//    }
+    @Given("I am singed in on the DigitalBank page")
+    public void iAmSingedInOnTheDigitalBankPage() {
+        LoginSteps loginSteps = new LoginSteps();
+        loginSteps.iOpenTheDigitalBankPage();
+        loginSteps.acceptCookies();
+        loginSteps.iSignInUsingAnd("KBoglarka", "KeBo123456");
+        //loginSteps.aMessageIsShownWith("Üdvözöljük, Boglárka");
+    }
 
     @When("iOpenTheMenü")
     public void i_click_on_menu_and_submenu(String menu, String submenu) {

@@ -29,7 +29,7 @@ public class NewSavingPage extends BasePage {
         savingOwnership.sendKeys(ownership);
         // TODO
         savingName.sendKeys(accName);
-        initialDeposit.sendKeys(amount);
+        initialDeposit.sendKeys("" + amount);
 
         submitButton.click();
     }
