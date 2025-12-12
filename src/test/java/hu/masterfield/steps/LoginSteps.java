@@ -35,16 +35,12 @@ public class LoginSteps {
     @Before
     public static void setup() throws IOException {
         ChromeOptions options = new ChromeOptions();
-
         // angol nyelvű böngésző indítása
         //options.addArguments("--lang=en-US");
         driver = new ChromeDriver(options);
         bannerPage = new BannerPage(driver);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         driver.manage().window().setSize(new Dimension(900, 900));
-        // Inicializáljuk a NewSavingPage és SavingPage objektumokat:
-        newSavingPage = new NewSavingPage(driver);
-        savingPage = new SavingPage(driver);
     }
 
     @After
@@ -69,8 +65,8 @@ public class LoginSteps {
         loginPage.login(username, password);
     }
 
-    @Then("a message is shown with {string}")
-    public void aMessageIsShownWith(String msg) {
+    @Then("a message is shown on the home page with {string}")
+    public void aMessageIsShownWithLogin(String msg) {
         loginPage.checkMessage(msg);
     }
 
@@ -80,14 +76,45 @@ public class LoginSteps {
     }
 
     // New saving:
-    @Given("I am singed in on the DigitalBank page")
-    public void iAmSingedInOnTheDigitalBankPage() {
+    @Given("I am signed in on the DigitalBank page")
+    public void iAmSignedInOnTheDigitalBankPage() {
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.iOpenTheDigitalBankPage();
         loginSteps.acceptCookies();
         loginSteps.iSignInUsingAnd("KBoglarka", "KeBo123456");
-        //loginSteps.aMessageIsShownWith("Üdvözöljük, Boglárka");
+        loginSteps.aMessageIsShownWithLogin("Üdvözöljük, Boglárka");
     }
+// VAGY
+//    @Given("I am signed in on the DigitalBank page")
+//    public void iAmSignedInOnTheDigitalBankPage() {
+//        iOpenTheDigitalBankPage();
+//        acceptCookies();
+//        iSignInUsingAnd("KBoglarka", "KeBo123456");
+//    }
+// VAGY
+//    @Given("I am signed in on the DigitalBank page")
+//    public void iAmSignedInOnTheDigitalBankPage() {
+//        driver.get("https://hun.digitalbank.masterfield.hu/bank/login");
+//        loginPage = new LoginPage(driver);
+//        loginPage.isLoaded();
+//    }
+//    @And("accept cookies")
+//    public void acceptCookies() {
+//        bannerPage.acceptCookies();
+//    }
+//    @And("I sign in using {string} and {string}")
+//    public void iSignInUsingAnd(String username, String password) {
+//        loginPage.login(username, password);
+// VAGY
+//    @Given("I am signed in on the DigitalBank page")
+//    public void iAmSignedInOnTheDigitalBankPage() {
+//        // Write code here that turns the phrase above into concrete actions
+//        iOpenTheDigitalBankPage();
+//        acceptCookies();
+//        iSignInUsingAnd("KBoglarka", "KeBo123456");
+//        throw new PendingException();
+//    }
+
 
     @When("iOpenTheMenü")
     public void i_click_on_menu_and_submenu(String menu, String submenu) {
@@ -96,7 +123,7 @@ public class LoginSteps {
         mainMenu.click();
 
         // Kattintás a második menü elemre (Új megtakarítás)
-        WebElement subMenu = driver.findElement(By.xpath("//*[@id=\"new-savings-menu-item\"]"));
+        WebElement subMenu = driver.findElement(By.xpath("///*[@id=\"new-savings-menu-item\"]"));
         subMenu.click();
     }
 
@@ -112,12 +139,12 @@ public class LoginSteps {
         // Kattintás az almenü elemre (Új megtakarítás)
         WebElement subMenu = driver.findElement(By.id("new-savings-menu-item"));
         subMenu.click();
-
     }
 
     @And("I create a new saving account with")
     public void iCreateANewSavingAccountWith(DataTable dataTable) {
         Map<String, String> data = dataTable.asMaps().get(0);
+
         newSavingPage.createNewSaving(data.get("TakarékszámlaTípusa"),
                 data.get("TakarékszámlaTulajdonjoga"),
                 data.get("SzámlaNeve"),

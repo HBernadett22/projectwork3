@@ -11,4 +11,3 @@ Feature: DigitalBank new saving
         | Megtakarítások      | Egyéni                    | KeBo3      | 100              |
       Then a message is shown on the savings page with "Megtakarítási számlák megtekintése"
       And the success message is visible "Megerősítés"
-      
