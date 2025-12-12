@@ -9,7 +9,7 @@ Feature: DigitalBank login page opening
   Rule: Login successfully
     Scenario: Fill the login fields correct
       When I sign in using "KBoglarka" and "KeBo123456"
-      Then a message is shown with "Üdvözöljük, Boglárka"
+      Then a message is shown on the home page with "Üdvözöljük, Boglárka"
 
   Rule: Login unsuccessfully
     Scenario Outline: Fill the login fields incorrect

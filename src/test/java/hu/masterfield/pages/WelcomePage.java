@@ -9,7 +9,6 @@ public class WelcomePage {
     }
 
     public void isLoaded() {
-
     }
 }
 

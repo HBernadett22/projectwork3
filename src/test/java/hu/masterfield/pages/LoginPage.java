@@ -39,7 +39,6 @@ public class LoginPage extends BasePage {
         }
     }
 
-
 //    public void checkMessage(String msg) {
 //        assertEquals(msg, welcomeMessage);
 //    }

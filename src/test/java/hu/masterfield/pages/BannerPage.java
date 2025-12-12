@@ -8,8 +8,11 @@ public class BannerPage extends BasePage {
     @FindBy(css = ".cc-nb-okagree")
     WebElement okBtn;
 
+    //private WebDriverWait wait;
+
     public BannerPage(WebDriver driver) {
         super(driver);
+        //    this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     public void open() {
