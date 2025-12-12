@@ -115,7 +115,6 @@ public class LoginSteps {
 //        throw new PendingException();
 //    }
 
-
     @When("iOpenTheMenü")
     public void i_click_on_menu_and_submenu(String menu, String submenu) {
         // Kattintás a fő menü elemre (Megtakarítás)

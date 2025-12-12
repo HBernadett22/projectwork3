@@ -33,5 +33,4 @@ public class NewSavingPage extends BasePage {
 
         submitButton.click();
     }
-
 }

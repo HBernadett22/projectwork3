@@ -19,18 +19,13 @@ public class SavingPage extends BasePage {
         // TODO: assert
         org.testng.Assert.assertEquals(
                 savingAccountsHeader.getText().trim(),
-                expectedTitle,
-                "The saving accounts header text does not match!"
-        );
+                expectedTitle, "The saving accounts header text does not match!");
     }
 
     public void checkMsg(String expectedMsg) {
         // TODO: assert
-        org.testng.Assert.assertEquals(
-                savingMessage.getText().trim(),
-                expectedMsg,
-                "The success message on the savings page does not match!"
-        );
+        org.testng.Assert.assertEquals(savingMessage.getText().trim(),
+                expectedMsg, "The success message on the savings page does not match!");
     }
 }
 
